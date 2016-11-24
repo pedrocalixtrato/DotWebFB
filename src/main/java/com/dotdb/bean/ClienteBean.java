@@ -18,7 +18,7 @@ import com.dotdb.domain.Clientes;
 public class ClienteBean implements Serializable{
 	
 	
-	private Clientes clientes;
+	private Clientes cliente;
 	@Inject
 	private ClienteDAO clienteDAO;
 	
@@ -26,14 +26,14 @@ public class ClienteBean implements Serializable{
 	@PostConstruct
 	public void init(){
 		
-		clientes = new Clientes();
+		cliente = new Clientes();
 		
 	}
 	
 	public void salvar(){
 		
 		try{			
-			clienteDAO.salvar(clientes);
+			clienteDAO.salvar(cliente);
 						
 			Messages.addGlobalInfo("Salvo com sucesso!");
 		}catch(RuntimeException e){
@@ -44,19 +44,18 @@ public class ClienteBean implements Serializable{
 		
 	}
 
+	public Clientes getCliente() {
+		return cliente;
+	}
 
-
-
-	public Clientes getClientes() {
-		return clientes;
+	public void setCliente(Clientes cliente) {
+		this.cliente = cliente;
 	}
 
 
 
 
-	public void setClientes(Clientes clientes) {
-		this.clientes = clientes;
-	}
+
 	
 	
 
